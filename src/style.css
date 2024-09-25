@@ -407,6 +407,65 @@ content: "\f057";
 
 }
 
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 720px;
+
+    flex-direction: unset;
+    padding: 0em;
+}
+
+.map{
+  position: absolute;
+  top: 10px;
+z-index: 999;
+overflow: visible;
+}
+
+.tooltip{
+  z-index: 9999;
+}
+
+.tooltip.show{
+  position: absolute;
+  opacity: 1 !important;
+
+}
+.tooltip-arrow{
+  display: none !important;
+}
+.tooltip.show{
+  z-index: 9999;
+  top: 17px !important;
+  right: 50px !important;
+  left: unset !important;
+  position: absolute;
+  opacity: 1;
+
+}
+.tooltip.show .tooltip-inner {
+  font-size: 22px !important;
+  background: white;
+  border: 3px solid #00559b;
+  padding: .3em;
+  width: 85px;
+  height: 54px;
+  color: #00559b !important;
+background: #d9f0fe
+}
+
+.states path:focus,
+.states path:hover {
+    fill: #8bd355 !important;
+    stroke-width: 2px !important;
+}
+
+.stateModal .modal-dialog {
+    max-width: 97% !important;
+}
+
 .accordion-button{
     color: #00559b !important;
 }
@@ -1180,7 +1239,7 @@ border-radius: 0rem !important;
 
 h2.accordion-header {
     font-size: 3rem;
-    line-height: 1rem !important;
+    line-height: .75rem !important;
     border-radius: 0 !important;
     background: transparent;
     border-radius: .75rem !important;
@@ -1188,9 +1247,13 @@ h2.accordion-header {
   box-shadow: 0px 15px 30px 2px rgba(4, 47, 78, 0.16);
 }
 
+label{
+      font-size: 18px !important;
+}
+
 .accordion-button {
     color: #00559b !important;
-    font-size: 21px;
+    font-size: 18px !important;
 }
 
 .newAccordion .scrollInside {

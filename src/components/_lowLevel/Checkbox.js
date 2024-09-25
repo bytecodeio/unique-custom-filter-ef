@@ -18,6 +18,9 @@ import {
 import { ExtensionContext } from "@looker/extension-sdk-react";
 import { Switch } from "@mui/material";
 
+
+import Map from "./Map.js";
+
 const Checkbox = ({
   fieldOptions,
   setFieldOptions,
@@ -120,7 +123,7 @@ const Checkbox = ({
    setOpenModals({ ...openModals, [fieldIndex]: false });
  };
 
-
+const [openStateModals, setOpenStateModals] = useState({});
 
 
 
@@ -130,7 +133,6 @@ const Checkbox = ({
 
 
     {fieldNameSuggestions.map((field, fieldIndex) => (
-
 
 
   <div key={fieldIndex}
@@ -172,12 +174,27 @@ const Checkbox = ({
 
 
 
-    <Modal show={openModals[fieldIndex]} onHide={() => handleClose(fieldIndex)}>
+    <Modal show={openModals[fieldIndex]} onHide={() => handleClose(fieldIndex)} className={field.title.toLowerCase() === 'state' ? 'stateModal' : ""}>
        <Modal.Header closeButton>
 
        <Modal.Title>{field.name}</Modal.Title>
      </Modal.Header>
+
+         {field.title.toLowerCase() === 'state' && (
+         <Modal.Body className="center">
+
+
+         <Map/>
+
+
+          </Modal.Body>
+        )}
+ {field.title.toLowerCase() !== 'state' && (
      <Modal.Body className="pb-4">
+
+
+
+
 
      <Switch
          className="allOptions clear first"
@@ -211,6 +228,9 @@ const Checkbox = ({
 
 
     </Modal.Body>
+
+        )}
+
 
    </Modal>
 
