@@ -9,6 +9,16 @@ body, html {
   font-family: "Roboto", sans-serif !important;
 }
 
+.main-map-svg{
+  transform:translate(260, 18)
+}
+
+.rect{
+transform:translate(-260, -18)
+}
+.main-map-group{
+  transform:translate(0,0) scale(1)
+}
 
 .eehSwU {
         padding-bottom: 3.75rem;
