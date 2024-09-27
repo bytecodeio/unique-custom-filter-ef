@@ -84,7 +84,7 @@ const slideRef = useRef(null);
  useEffect(() => {
    if (slideRef.current) {
      const width = slideRef.current.clientWidth;
-     console.log('Width:', width);
+     // console.log('Width:', width);
    }
  }, []);
 

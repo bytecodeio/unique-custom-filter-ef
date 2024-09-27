@@ -103,8 +103,8 @@ const filteredSuggestions = fieldNameSuggestions3.filter(suggestion =>
    setOpenModals({ ...openModals, [fieldIndex]: false });
  };
 
- console.log(filteredSuggestions.length)
-
+ // console.log(filteredSuggestions.length)
+ //
 
 
   return (

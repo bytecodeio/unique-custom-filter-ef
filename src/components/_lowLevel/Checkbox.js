@@ -19,7 +19,7 @@ import { ExtensionContext } from "@looker/extension-sdk-react";
 import { Switch } from "@mui/material";
 
 
-import Map from "./Map.js";
+import MapSVG from "./Map.js";
 
 const Checkbox = ({
   fieldOptions,
@@ -111,8 +111,6 @@ const Checkbox = ({
 
 
 
-
-
  const [openModals, setOpenModals] = useState({});
 
  const handleShow = (fieldIndex) => {
@@ -124,6 +122,7 @@ const Checkbox = ({
  };
 
 const [openStateModals, setOpenStateModals] = useState({});
+
 
 
 
@@ -184,12 +183,23 @@ const [openStateModals, setOpenStateModals] = useState({});
          <Modal.Body className="center">
 
 
-         <Map/>
+         <MapSVG
+         fieldNameSuggestions={fieldNameSuggestions}
+         setFieldNameSuggestions={setFieldNameSuggestions}
+         fieldOptions={fieldOptions}
+         setFieldOptions={setFieldOptions}
+         selectedFields={selectedFields}
+         setSelectedFields={setSelectedFields}
+
+         setFieldNameSuggestions={setFieldNameSuggestions}
+         selectedCheckboxes={selectedCheckboxes}
+         setSelectedCheckboxes={setSelectedCheckboxes}
+         />
 
 
           </Modal.Body>
         )}
- {field.title.toLowerCase() !== 'state' && (
+  {field.title.toLowerCase() !== 'state' && (
      <Modal.Body className="pb-4">
 
 
@@ -207,9 +217,17 @@ const [openStateModals, setOpenStateModals] = useState({});
 
          <div className="divider"></div>
 
+
+
+
          <div class="scrollInside">
            {field.suggestions.map((option, optionIndex) => (
+
+
+
              <Form.Group key={optionIndex}>
+
+            
                <Form.Check
                  onClick={() => handleFieldSelection(field, option)}
                  type="checkbox"

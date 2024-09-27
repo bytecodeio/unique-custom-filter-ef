@@ -19,7 +19,7 @@ export const LeftDrawer = ({
   const [openItems, setOpenItems] = useState([]);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
 
-console.log(typeof heightOffset);
+// console.log(typeof heightOffset);
 
 
 
