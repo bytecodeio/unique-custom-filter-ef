@@ -472,6 +472,12 @@ background: #d9f0fe
     stroke-width: 2px !important;
 }
 
+
+.selected {
+  fill: #8bd355 !important;
+  stroke-width: 2px !important;
+}
+
 .stateModal .modal-dialog {
     max-width: 97% !important;
 }
