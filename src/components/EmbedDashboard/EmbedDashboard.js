@@ -31,6 +31,9 @@ export const EmbedDashboard = ({
   //   selectedCheckboxes
   // );
 
+
+  console.log(selectedCheckboxes, "selectedCheckboxes embed dash")
+
   if (dashboard) {
     let _formatFilters = {}
     Object.entries(selectedCheckboxes).map(([key,value]) => {

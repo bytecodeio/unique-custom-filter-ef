@@ -72,60 +72,38 @@ const [tooltipVisible, setTooltipVisible] = useState(false);
    }
  }, []);
 
- // const handleFieldSelection = (field, value) => {
- //    let _selectedCheckboxes = { ...selectedCheckboxes };
- //    let { title } = field;
- //    if (!_selectedCheckboxes.hasOwnProperty(title)) {
- //      _selectedCheckboxes[title] = [];
- //    }
- //    if (_selectedCheckboxes[title]?.includes(value)) {
- //      let index = _selectedCheckboxes[title].indexOf(value);
- //      _selectedCheckboxes[title].splice(index, 1);
- //      console.log(_selectedCheckboxes);
- //    } else {
- //      _selectedCheckboxes[title].push(value);
- //    }
- //    if (_selectedCheckboxes[title].length == 0) {
- //      delete _selectedCheckboxes[title];
- //    }
- //    setSelectedCheckboxes(_selectedCheckboxes);
- //  };
-
- // const handleFieldSelection = (value) => {
- //   let _selectedCheckboxes = { ...selectedCheckboxes };
- //
- //   // Update logic based on the value (assuming 'State' is the expected title)
- //   if (!_selectedCheckboxes.hasOwnProperty('State')) {
- //     _selectedCheckboxes['State'] = [];
- //   }
- //
- //   if (_selectedCheckboxes['State'].includes(value)) {
- //     let index = _selectedCheckboxes['State'].indexOf(value);
- //     _selectedCheckboxes['State'].splice(index, 1);
- //   } else {
- //     _selectedCheckboxes['State'].push(value);
- //   }
- //
- //   if (_selectedCheckboxes['State'].length == 0) {
- //     delete _selectedCheckboxes['State'];
- //   }
- //
- //   setSelectedCheckboxes(_selectedCheckboxes);
- // };
 
 
- const handleFieldSelection = (value) => {
+//  const handleFieldSelection = (value) => {
+//   setSelectedCheckboxes((prevSelectedCheckboxes) => {
+//     let newSelectedCheckboxes = { ...prevSelectedCheckboxes };
+//
+//     if (newSelectedCheckboxes.State?.includes(value)) {
+//
+//       newSelectedCheckboxes.State = newSelectedCheckboxes.State.filter(
+//         (item) => item !== value
+//       );
+//     } else {
+//
+//       newSelectedCheckboxes.State = [...(newSelectedCheckboxes.State || []), value];
+//     }
+//
+//     return newSelectedCheckboxes;
+//   });
+// };
+
+const handleFieldSelection = (value) => {
   setSelectedCheckboxes((prevSelectedCheckboxes) => {
     let newSelectedCheckboxes = { ...prevSelectedCheckboxes };
 
-    // Check if the value exists in the 'State' array
+    // Update logic based on the received value
     if (newSelectedCheckboxes.State?.includes(value)) {
-      // Remove the value if checked
+      // Remove the value if already checked
       newSelectedCheckboxes.State = newSelectedCheckboxes.State.filter(
         (item) => item !== value
       );
     } else {
-      // Add the value if unchecked
+      // Add the value if not already checked
       newSelectedCheckboxes.State = [...(newSelectedCheckboxes.State || []), value];
     }
 
@@ -133,19 +111,48 @@ const [tooltipVisible, setTooltipVisible] = useState(false);
   });
 };
 
+console.log(selectedCheckboxes, "selectedCheckboxes")
+
 return (
 <>
 <Container style={{maxWidth: "1368px"}}>
 <Form.Group>
   <Form.Check
-    onClick={() => handleFieldSelection('WA')} // Pass 'WA' directly
+    onClick={() => handleFieldSelection('WA')}
     type="checkbox"
     className=""
     label="WA" // Label is still 'WA'
-    checked={selectedCheckboxes['State']?.includes('WA')} // Check if 'WA' is in selectedCheckboxes
+    checked={selectedCheckboxes.State?.includes('WA')} // Check if 'WA' is in selectedCheckboxes
     name="accountGroups"
     id="id_7_47"
     value="WA"
+  />
+</Form.Group>
+
+<Form.Group>
+  <Form.Check
+    onClick={() => handleFieldSelection('OR')}
+    type="checkbox"
+    className=""
+    label="OR" // Label is still 'OR'
+    checked={selectedCheckboxes.State?.includes('OR')} // Check if 'OR' is in selectedCheckboxes
+    name="accountGroups"
+    id="id_9_47"
+    value="OR"
+  />
+</Form.Group>
+
+
+<Form.Group>
+  <Form.Check
+    onClick={() => handleFieldSelection('MD')}
+    type="checkbox"
+    className=""
+    label="MD" // Label is still 'OR'
+    checked={selectedCheckboxes.State?.includes('MD')} // Check if 'OR' is in selectedCheckboxes
+    name="accountGroups"
+    id="id_12_47"
+    value="MD"
   />
 </Form.Group>
 
