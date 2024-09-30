@@ -115,13 +115,54 @@ const handleFieldSelection = (value) => {
 // console.log(selectedCheckboxes, "selectedCheckboxes")
 const [selectedPaths, setSelectedPaths] = useState([]);
 
+//
+// const changeColor = (pathId) => {
+//   const pathElement = document.getElementById(pathId);
+//   if (pathElement) {
+//     pathElement.classList.toggle('selected');
+//   }
+// };
+
+// const changeColor = (pathId) => {
+//   const pathElement = document.getElementById(pathId);
+//   if (pathElement) {
+//     pathElement.classList.toggle('selected');
+//
+//     // Add the path ID to a new span tag inside "circleAcross"
+//     const circleAcrossDiv = document.getElementById('circleAcross');
+//     const newSpan = document.createElement('span');
+//     newSpan.textContent = pathId;
+//     circleAcrossDiv.appendChild(newSpan);
+//   }
+//
+// };
 
 const changeColor = (pathId) => {
   const pathElement = document.getElementById(pathId);
   if (pathElement) {
     pathElement.classList.toggle('selected');
+
+    const isPathSelected = pathElement.classList.contains('selected');
+
+
+    const circleAcrossDiv = document.getElementById('circleAcross');
+    const span = circleAcrossDiv.querySelector(`span[data-path-id="${pathId}"]`);
+
+    if (isPathSelected) {
+      if (!span) {
+        const newSpan = document.createElement('span');
+        newSpan.textContent = pathId;
+        newSpan.dataset.pathId = pathId;
+        circleAcrossDiv.appendChild(newSpan);
+      }
+
+
+    } else if (span) {
+        span.remove();
+    }
   }
 };
+
 
 
 return (

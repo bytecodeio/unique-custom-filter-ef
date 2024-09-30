@@ -173,37 +173,91 @@ const [openStateModals, setOpenStateModals] = useState({});
 
 
 
+     {/*{field.title.toLowerCase() === 'state' && (
+
+  <div id="slideOut5" className={show5 ? "show3" : ""} ref={wrapperRef}>
+  <div className="back">
+    <div
+      id="one5"
+      className=""
+      role="button"
+      tabIndex="0"
+      onClick={() => setShow5(true)}
+    >
+      <p>
+        <i aria-hidden="true" className="far fa-arrow-left"></i> View All
+        Reports
+      </p>
+    </div>
+  </div>
+
+  <div className="modal-content mt-1">
+    <div className="modal-header">
+      <p className="strong">{field.name}</p>
+      <div className="closeThisPlease" id="close1">
+        <Button
+          role="button"
+          className="close"
+          data-dismiss="modal"
+          id="closeThisPlease1"
+          onClick={() => setShow5(false)}
+        >
+          <i className="fal fa-angle-double-left"></i>
+        </Button>
+      </div>
+    </div>
+
+      <div className="modal-body" className="center">
+
+
+               <MapSVG
+               fieldNameSuggestions={fieldNameSuggestions}
+               setFieldNameSuggestions={setFieldNameSuggestions}
+               fieldOptions={fieldOptions}
+               setFieldOptions={setFieldOptions}
+               selectedFields={selectedFields}
+               setSelectedFields={setSelectedFields}
+
+               setFieldNameSuggestions={setFieldNameSuggestions}
+               selectedCheckboxes={selectedCheckboxes}
+               setSelectedCheckboxes={setSelectedCheckboxes}
+               />
+
+
+      </div>
+</div>
+</div>
+
+)}*/}
+
+
     <Modal show={openModals[fieldIndex]} onHide={() => handleClose(fieldIndex)} className={field.title.toLowerCase() === 'state' ? 'stateModal' : ""}>
        <Modal.Header closeButton>
 
        <Modal.Title>{field.name}</Modal.Title>
      </Modal.Header>
 
-         {field.title.toLowerCase() === 'state' && (
-         <Modal.Body className="center">
+{field.title.toLowerCase() === 'state' && (
+      <Modal.Body className="center">
 
+     <MapSVG
+     fieldNameSuggestions={fieldNameSuggestions}
+     setFieldNameSuggestions={setFieldNameSuggestions}
+     fieldOptions={fieldOptions}
+     setFieldOptions={setFieldOptions}
+     selectedFields={selectedFields}
+     setSelectedFields={setSelectedFields}
 
-         <MapSVG
-         fieldNameSuggestions={fieldNameSuggestions}
-         setFieldNameSuggestions={setFieldNameSuggestions}
-         fieldOptions={fieldOptions}
-         setFieldOptions={setFieldOptions}
-         selectedFields={selectedFields}
-         setSelectedFields={setSelectedFields}
+     setFieldNameSuggestions={setFieldNameSuggestions}
+     selectedCheckboxes={selectedCheckboxes}
+     setSelectedCheckboxes={setSelectedCheckboxes}
+     />
 
-         setFieldNameSuggestions={setFieldNameSuggestions}
-         selectedCheckboxes={selectedCheckboxes}
-         setSelectedCheckboxes={setSelectedCheckboxes}
-         />
+     </Modal.Body>
+       )}
 
-
-          </Modal.Body>
-        )}
   {field.title.toLowerCase() !== 'state' && (
      <Modal.Body className="pb-4">
-
-
-
 
 
      <Switch
@@ -227,7 +281,7 @@ const [openStateModals, setOpenStateModals] = useState({});
 
              <Form.Group key={optionIndex}>
 
-            
+
                <Form.Check
                  onClick={() => handleFieldSelection(field, option)}
                  type="checkbox"

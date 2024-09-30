@@ -14,7 +14,7 @@ import Radio from "../../components/_lowLevel/Radio.js";
 import Dropdown from "../../components/_lowLevel/Dropdown.js";
 
 
-
+import SideForm from "../../components/_lowLevel/SideForm.js";
 
 
 export const TopAppBar = ({ appConfig, onMenuClick, toolbarHeight, props, ref, boardTitle, filter, expression, onChange,fieldNameSuggestions,fieldNameSuggestions2, fieldNameSuggestions3, setSelectedCheckboxes,selectedCheckboxes, navbarHeight, setNavbarHeight }) => {
@@ -249,7 +249,7 @@ const handleClickOutside = (event) => {
         </div>
 
 
-
+  <SideForm />
 
     </Fragment>
   );
