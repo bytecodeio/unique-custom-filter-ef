@@ -28,7 +28,12 @@ const MapSVG = ({
   fieldNameSuggestions,
   setFieldNameSuggestions,
   selectedCheckboxes,
-  setSelectedCheckboxes}) => {
+  setSelectedCheckboxes,
+  setSelectedPaths,
+  selectedPaths
+}) => {
+
+console.log(selectedPaths, "selectedPaths")
 
   const stateSuggestions = fieldNameSuggestions.filter(suggestion => suggestion.title.toLowerCase() === 'state');
 
@@ -74,24 +79,6 @@ const [tooltipVisible, setTooltipVisible] = useState(false);
 
 
 
-//  const handleFieldSelection = (value) => {
-//   setSelectedCheckboxes((prevSelectedCheckboxes) => {
-//     let newSelectedCheckboxes = { ...prevSelectedCheckboxes };
-//
-//     if (newSelectedCheckboxes.State?.includes(value)) {
-//
-//       newSelectedCheckboxes.State = newSelectedCheckboxes.State.filter(
-//         (item) => item !== value
-//       );
-//     } else {
-//
-//       newSelectedCheckboxes.State = [...(newSelectedCheckboxes.State || []), value];
-//     }
-//
-//     return newSelectedCheckboxes;
-//   });
-// };
-
 
 
 const handleFieldSelection = (value) => {
@@ -112,30 +99,7 @@ const handleFieldSelection = (value) => {
   });
 };
 
-// console.log(selectedCheckboxes, "selectedCheckboxes")
-const [selectedPaths, setSelectedPaths] = useState([]);
 
-//
-// const changeColor = (pathId) => {
-//   const pathElement = document.getElementById(pathId);
-//   if (pathElement) {
-//     pathElement.classList.toggle('selected');
-//   }
-// };
-
-// const changeColor = (pathId) => {
-//   const pathElement = document.getElementById(pathId);
-//   if (pathElement) {
-//     pathElement.classList.toggle('selected');
-//
-//     // Add the path ID to a new span tag inside "circleAcross"
-//     const circleAcrossDiv = document.getElementById('circleAcross');
-//     const newSpan = document.createElement('span');
-//     newSpan.textContent = pathId;
-//     circleAcrossDiv.appendChild(newSpan);
-//   }
-//
-// };
 
 const changeColor = (pathId) => {
   const pathElement = document.getElementById(pathId);
@@ -162,6 +126,32 @@ const changeColor = (pathId) => {
     }
   }
 };
+
+
+// const changeColor = (pathId) => {
+//   const pathElement = document.getElementById(pathId);
+//   if (pathElement) {
+//     pathElement.classList.toggle('selected');
+//
+//     const isPathSelected = pathElement.classList.contains('selected');
+//
+//     const circleAcrossDiv = document.getElementById('circleAcross');
+//     const span = circleAcrossDiv.querySelector(`span[data-path-id="${pathId}"]`);
+//
+//     if (isPathSelected) {
+//       if (!span) {
+//         const newSpan = document.createElement('span');
+//         newSpan.textContent = pathId;
+//         newSpan.dataset.pathId = pathId;
+//         circleAcrossDiv.appendChild(newSpan);
+//         setSelectedPaths([...selectedPaths, pathId]);
+//       }
+//     } else if (span) {
+//       span.remove();
+//       setSelectedPaths(selectedPaths.filter((id) => id !== pathId));
+//     }
+//   }
+// };
 
 
 

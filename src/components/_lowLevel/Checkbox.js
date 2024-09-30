@@ -121,10 +121,8 @@ const Checkbox = ({
    setOpenModals({ ...openModals, [fieldIndex]: false });
  };
 
-const [openStateModals, setOpenStateModals] = useState({});
 
-
-
+ const [selectedPaths, setSelectedPaths] = useState([]);
 
   return (
     <Fragment>
@@ -251,6 +249,8 @@ const [openStateModals, setOpenStateModals] = useState({});
      setFieldNameSuggestions={setFieldNameSuggestions}
      selectedCheckboxes={selectedCheckboxes}
      setSelectedCheckboxes={setSelectedCheckboxes}
+     selectedPaths={selectedPaths}
+     setSelectedPaths={setSelectedPaths}
      />
 
      </Modal.Body>
