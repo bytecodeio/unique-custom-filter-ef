@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import HowTo from "./HowTo";
 import Glossary from "./Glossary";
 
-function SideForm() {
+function SideForm({showMap, setShowMap}) {
   const [show, setShow] = useState();
   const [show2, setShow2] = useState(false);
   const wrapperRef = useRef(null);
@@ -35,6 +35,7 @@ function SideForm() {
         <div className="slideOutTab1">
           <div
             id="one1"
+            style={{display: showMap === true ? "none" : "block"}}
             className="openTab bottomShadow"
             role="button"
             tabIndex="0"
@@ -48,6 +49,7 @@ function SideForm() {
 
           <div
             id="two"
+              style={{display: showMap === true ? "none" : "block"}}
             className="openTab bottomShadow"
             data-dismiss="modal"
             aria-controls="right-nav-contact"

@@ -11,7 +11,7 @@ body, html {
 
 #circleAcross{
 position: absolute;
-top: -46px;
+top: -420px;
 left: 16%;
 display: flex;
 justify-content: flex-start;
@@ -32,9 +32,8 @@ height: 34px;
 margin: 0em .4em;
 }
 
-.main-map-svg{
-  transform:translate(260, 18)
-}
+
+
 
 .rect{
 transform:translate(-260, -18)
@@ -70,7 +69,7 @@ transform:translate(-260, -18)
   position: absolute;
   top: 74px;
   height: 40px;
-  z-index: 999;
+  z-index: 8;
   padding: 0rem 1rem;
   display: flex;
   justify-content: center;
@@ -448,13 +447,19 @@ content: "\f057";
 
     flex-direction: unset;
     padding: 0em;
+    position: relative;
 }
 
 .map{
   position: absolute;
-  top: 10px;
+  top: -50px;
 z-index: 999;
 overflow: visible;
+}
+
+#closeThisPlease1 i{
+  color: #00559b !important;
+  font-size: 35px !important
 }
 
 .tooltip{
@@ -470,25 +475,30 @@ overflow: visible;
   display: none !important;
 }
 .tooltip.show{
-  z-index: 9999;
-  top: 17px !important;
-  right: 20px !important;
+  z-index: 9999999999999999999999999 !important;
+  top: 40px !important;
+  right: 110px !important;
   left: unset !important;
   position: absolute;
   opacity: 1;
 
 }
 .tooltip.show .tooltip-inner {
-  font-size: 22px !important;
+  font-size: 33px !important;
   background: white;
-  border: 2px solid #00559b;
+  border: 3px solid #00559b;
   padding: .3em;
-  width: 56px;
-  height: 54px;
+  width: 96px;
+  height: 94px;
   color: #00559b !important;
 background: #d9f0fe;
-border-radius: 50%
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
 }
+
+
 
 .states path:focus,
 .states path:hover {
@@ -977,7 +987,7 @@ li{
   text-align: center;
   top: 185px;
   right: -16px;
-  z-index: 87;
+  z-index: 7;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
 
@@ -2330,13 +2340,13 @@ font-weight: 500;
 
 
 #slideOut5 {
-    position: absolute;
-    left: -2000px;
+    position:absolute;
+    right: -1200px;
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
     margin: 0;
-    height: auto;
+    height: 800px;
     top: 0;
     z-index: 0;
 }
@@ -2357,17 +2367,20 @@ font-weight: 500;
     margin: 0;
     padding-left: 1.2em;
     padding-right: 1.2em;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
+    padding-top: 1em;
     opacity: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    border-bottom-right-radius: 1rem;
-    top: 69px;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    top: 0px;
+    box-shadow: 0px 0px 10px 9px rgba(0, 0, 0, 0.1);
 }
 
 
 #slideOut5 .modal-content {
-    width: 800px;
+    width: 1300px;
 }
 
 
@@ -2390,9 +2403,25 @@ font-weight: 500;
     left: -10px;
     min-width: 167px;
     max-width: 185px;
+    display: none
 }
 
 .show3 {
-    left: 0px !important;
+    right: 1285px !important;
     z-index: 99999999999999 !important;
+}
+
+.map {
+    position: absolute;
+    top: -350px;
+    z-index: 999;
+    overflow: visible;
+}
+.tooltip {
+    z-index: 9999;
+    position: absolute;
+}
+
+svg{
+  transform: scale(.9);
 }

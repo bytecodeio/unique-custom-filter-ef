@@ -35,7 +35,9 @@ const Checkbox = ({
   filter,
   expression,
   onChange,
-  children
+  children,
+  showMap,
+  setShowMap
 }) => {
   const { core40SDK: sdk, extensionSDK } = useContext(ExtensionContext);
 
@@ -77,23 +79,23 @@ const Checkbox = ({
     }));
   };
 
-  const [show5, setShow5] = React.useState();
+  // const [showMap, setShowMap] = React.useState();
 
-   const wrapperRef = React.useRef(null);
-
-   React.useEffect(() => {
-     document.addEventListener("click", handleClickOutside, false);
-     return () => {
-       document.removeEventListener("click", handleClickOutside, false);
-     };
-   }, []);
-
-   const handleClickOutside = (event) => {
-     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-       setShow5(true);
-
-     }
-   };
+   // const wrapperRef = React.useRef(null);
+   //
+   // React.useEffect(() => {
+   //   document.addEventListener("click", handleClickOutside, false);
+   //   return () => {
+   //     document.removeEventListener("click", handleClickOutside, false);
+   //   };
+   // }, []);
+   //
+   // const handleClickOutside = (event) => {
+   //   if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+   //     setShow5(true);
+   //
+   //   }
+   // };
 
   const [open, setOpen] = React.useState(false);
 
@@ -140,6 +142,15 @@ const Checkbox = ({
         }>
     {filteredSuggestions.some(suggestion => suggestion.title === field.name) && (
       <>
+
+
+       {field.title.toLowerCase() === 'state' && (
+          <Button className="pills" onClick={() => setShowMap(true)}>
+            <i className="fal fa-map-marker-alt"></i> &nbsp;{field.name}</Button>
+
+   )}
+
+    {field.title.toLowerCase() !== 'state' && (
         <Button className="pills" onClick={() => handleShow(fieldIndex)}>
 
 
@@ -162,29 +173,25 @@ const Checkbox = ({
                  )}
 
 
-                 {field.title.toLowerCase() === 'state' && (
-                   <i className="fal fa-map-marker-alt"></i>
-                 )}
 
               &nbsp;{field.name}
         </Button>
+)}
 
 
+     {field.title.toLowerCase() === 'state' && (
 
-     {/*{field.title.toLowerCase() === 'state' && (
-
-  <div id="slideOut5" className={show5 ? "show3" : ""} ref={wrapperRef}>
+  <div id="slideOut5" className={showMap ? "show3" : ""}>
   <div className="back">
     <div
       id="one5"
       className=""
       role="button"
       tabIndex="0"
-      onClick={() => setShow5(true)}
+
     >
       <p>
-        <i aria-hidden="true" className="far fa-arrow-left"></i> View All
-        Reports
+        <i class="fal fa-times-circle"></i>
       </p>
     </div>
   </div>
@@ -194,13 +201,14 @@ const Checkbox = ({
       <p className="strong">{field.name}</p>
       <div className="closeThisPlease" id="close1">
         <Button
+          style={{position: "absolute", right: "20px", top: "17px"}}
           role="button"
           className="close"
           data-dismiss="modal"
           id="closeThisPlease1"
-          onClick={() => setShow5(false)}
+          onClick={() => setShowMap(false)}
         >
-          <i className="fal fa-angle-double-left"></i>
+        <i class="fal fa-times-circle"></i>
         </Button>
       </div>
     </div>
@@ -226,16 +234,16 @@ const Checkbox = ({
 </div>
 </div>
 
-)}*/}
+)}
+  {field.title.toLowerCase() !== 'state' && (
 
-
-    <Modal show={openModals[fieldIndex]} onHide={() => handleClose(fieldIndex)} className={field.title.toLowerCase() === 'state' ? 'stateModal' : ""}>
+    <Modal show={openModals[fieldIndex]} onHide={() => handleClose(fieldIndex)}>
        <Modal.Header closeButton>
 
        <Modal.Title>{field.name}</Modal.Title>
      </Modal.Header>
 
-{field.title.toLowerCase() === 'state' && (
+{/*}{field.title.toLowerCase() === 'state' && (
       <Modal.Body className="center">
 
      <MapSVG
@@ -254,9 +262,9 @@ const Checkbox = ({
      />
 
      </Modal.Body>
-       )}
+   )}*/}
 
-  {field.title.toLowerCase() !== 'state' && (
+
      <Modal.Body className="pb-4">
 
 
@@ -301,12 +309,12 @@ const Checkbox = ({
 
     </Modal.Body>
 
-        )}
+
 
 
    </Modal>
 
-
+    )}
             </>
               )}
           </div>

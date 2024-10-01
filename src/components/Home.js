@@ -23,9 +23,12 @@ import {
 
 export const AppAlertContext = createContext();
 
-export const Home = (navbarRef) => {
+export const Home = ({ navbarRef }) => {
   const history = useHistory();
   const { core40SDK: sdk, extensionSDK } = useContext(ExtensionContext);
+
+
+    const [showMap, setShowMap] = React.useState();
 
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = useState(true);
   const [selectedDashboardId, setSelectedDashboardId] = useState();
@@ -325,6 +328,8 @@ const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
                   setSelectedCheckboxes={setSelectedCheckboxes}
                   selectedCheckboxes={selectedCheckboxes}
                   boardTitle={boardTitle}
+                  showMap={showMap}
+                  setShowMap={setShowMap}
                 />
               )}
               <Box flexGrow={1} display="flex">
@@ -341,6 +346,7 @@ const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
                   appConfig={appConfig}
                   isAdminUser={isAdminUser}
                   refreshPayload={reloadPage}
+                  showMap={showMap}
                 />
                 <Box
                   sx={{

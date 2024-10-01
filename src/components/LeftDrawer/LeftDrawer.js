@@ -14,7 +14,8 @@ export const LeftDrawer = ({
   appConfig,
   isAdminUser,
   refreshPayload,
-  navbarHeight
+  navbarHeight,
+  showMap
 }) => {
   const [openItems, setOpenItems] = useState([]);
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
@@ -22,9 +23,10 @@ export const LeftDrawer = ({
 // console.log(typeof heightOffset);
 
 
-
+console.log(showMap, "show map")
   return (
     <Drawer
+      style={{zIndex: showMap === true ? "7" : "9"}}
       anchor="left"
       variant="persistent"
       open={isOpen}

@@ -157,7 +157,7 @@ const changeColor = (pathId) => {
 
 return (
 <>
-<Container style={{maxWidth: "1368px"}}>
+<Container style={{maxWidth: "1368px", position:"relative"}}>
 
 
 <div id="circleAcross"></div>

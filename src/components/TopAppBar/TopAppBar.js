@@ -17,7 +17,7 @@ import Dropdown from "../../components/_lowLevel/Dropdown.js";
 import SideForm from "../../components/_lowLevel/SideForm.js";
 
 
-export const TopAppBar = ({ appConfig, onMenuClick, toolbarHeight, props, ref, boardTitle, filter, expression, onChange,fieldNameSuggestions,fieldNameSuggestions2, fieldNameSuggestions3, setSelectedCheckboxes,selectedCheckboxes, navbarHeight, setNavbarHeight }) => {
+export const TopAppBar = ({ appConfig, onMenuClick, toolbarHeight, props, ref, boardTitle, filter, expression, onChange,fieldNameSuggestions,fieldNameSuggestions2, fieldNameSuggestions3, setSelectedCheckboxes,selectedCheckboxes, navbarHeight, setNavbarHeight, showMap, setShowMap }) => {
   const { core40SDK } = useContext(ExtensionContext);
   const [message, setMessage] = useState();
 
@@ -112,6 +112,8 @@ const handleClickOutside = (event) => {
   }
 };
 
+
+
   return (
 <Fragment>
     <Container fluid className="padding-0">
@@ -156,6 +158,8 @@ const handleClickOutside = (event) => {
             fieldNameSuggestions={fieldNameSuggestions}
             setSelectedCheckboxes={setSelectedCheckboxes}
             selectedCheckboxes={selectedCheckboxes}
+            showMap={showMap}
+            setShowMap={setShowMap}
 
           />
 
@@ -192,6 +196,7 @@ const handleClickOutside = (event) => {
           <div>
             <div
               id="one"
+              style={{display: showMap === true ? "none" : "flex"}}
               className="openTab bottomShadow"
               role="button"
               tabIndex="0"
@@ -249,7 +254,10 @@ const handleClickOutside = (event) => {
         </div>
 
 
-  <SideForm />
+  <SideForm
+  showMap={showMap}
+  setShowMap={setShowMap}
+   />
 
     </Fragment>
   );
